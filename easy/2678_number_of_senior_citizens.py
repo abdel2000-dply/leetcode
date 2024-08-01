@@ -19,4 +19,8 @@ class Solution:
                 count += 1
         return count
 
-      
+
+class Solution2:
+    def countSeniors(self, details: List[str]) -> int:
+        return sum(int(p[11:13]) > 60 for p in details)
+        
