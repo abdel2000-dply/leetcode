@@ -9,4 +9,6 @@ Return true if you can make arr equal to target or false otherwise.
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
         return sorted(target) == sorted(arr)
+        # for large arrays:
+        # return Counter(target) == Counter(arr)
         
