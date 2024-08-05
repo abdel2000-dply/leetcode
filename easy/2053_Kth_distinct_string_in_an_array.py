@@ -16,6 +16,18 @@ class Solution2:
 
         return ""
 
+class Solution3:
+    def kthDistinct(self, arr: List[str], k: int) -> str:
+        frequency = Counter(arr)
+        
+        for string in arr:
+            if frequency[string] == 1:  # The string is distinct
+                k -= 1
+                if k == 0:
+                    return string
+        
+        return ""
+
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
         dist = []
