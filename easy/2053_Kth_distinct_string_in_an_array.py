@@ -1,6 +1,21 @@
 """2053. Kth Distinct String in an Array
 
 """
+class Solution2:
+    def kthDistinct(self, arr: List[str], k: int) -> str:
+        n = len(arr)
+
+        for i in range(n):
+
+            curr = arr[i]
+            new = arr[:i] + arr[i + 1:]
+            if curr not in new:
+                k -= 1
+                if k == 0:
+                    return curr
+
+        return ""
+
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
         dist = []
