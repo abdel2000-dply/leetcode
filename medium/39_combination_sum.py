@@ -9,3 +9,20 @@ frequency
 
 The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
 """
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        def backtrack(start, curr_comb, curr_sum):
+            if curr_sum == target:
+                result.append(curr_comb[:])
+                return
+            if curr_sum > target:
+                return
+
+            for i in range(start, len(candidates)):
+                curr_comb.append(candidates[i])
+                backtrack(i, curr_comb, curr_sum + candidates[i])
+                curr_comb.pop()
+
+        result = []
+        backtrack(0, [], 0)
+        return result
