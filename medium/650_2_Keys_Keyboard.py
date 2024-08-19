@@ -7,3 +7,13 @@ Copy All: You can copy all the characters present on the screen (a partial copy 
 Paste: You can paste the characters which are copied last time.
 Given an integer n, return the minimum number of operations to get the character 'A' exactly n times on the screen.
 """
+class Solution:
+    def minSteps(self, n: int) -> int:
+        if n <= 1:
+            return 0
+
+        for i in range(2, n + 1):
+            if n % i == 0:
+                return self.minSteps(n // i) + i
+
+        return n
